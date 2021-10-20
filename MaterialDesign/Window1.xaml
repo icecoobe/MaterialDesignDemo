@@ -1,0 +1,66 @@
+﻿<mde:MaterialWindow x:Class="MaterialDesign.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mde="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
+        xmlns:local="clr-namespace:MaterialDesign"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        MouseMove="Window_MouseMove"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <!-- TextElement -->
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <!--<RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />-->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <mde:AppBar x:Name="appBar" Grid.ColumnSpan="2" Panel.ZIndex="1024" Title="Omni RF Test Workflow" ShowNavigationDrawerButton="True" MouseDoubleClick="appBar_MouseDoubleClick" >
+            <Button Style="{StaticResource MaterialDesignToolForegroundButton}" Margin="4,0" ToolTip="Min" Click="Window_Min">
+                <md:PackIcon Kind="WindowMinimize" Height="32" Width="32" VerticalAlignment="Center" RenderTransformOrigin="-4.875,0.615" />
+            </Button>
+            <Button Style="{StaticResource MaterialDesignToolForegroundButton}" Margin="4,0" ToolTip="Max" Click="Window_Max">
+                <md:PackIcon Kind="WindowMaximize" Height="32" Width="32" VerticalAlignment="Center" RenderTransformOrigin="-4.875,0.615" />
+            </Button>
+            <Button Style="{StaticResource MaterialDesignToolForegroundButton}" Margin="4,0" ToolTip="Quit" Click="Window_Close">
+                <md:PackIcon Kind="WindowClose" Height="32" Width="32" VerticalAlignment="Center" RenderTransformOrigin="-4.875,0.615" />
+            </Button>
+        </mde:AppBar>
+
+        <Border Grid.Row="1" BorderThickness="0,0,2,0" BorderBrush="WhiteSmoke">
+            <mde:SideNavigation x:Name="sideNav" NavigationItemSelected="NavigationItemSelected" FontFamily="宋体" FontWeight="Bold"/>
+        </Border>
+        <ContentControl x:Name="contentControl" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+        <md:Snackbar
+            x:Name="Snackbar"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="2"
+            HorizontalAlignment="Center"
+            Foreground="White"
+            Background="#1E88E5"
+            MessageQueue="{md:MessageQueue}" />
+
+        <md:Card Grid.Row="1" Grid.Column="1" Grid.RowSpan="1" Grid.ColumnSpan="2" Padding="10" Margin="1">
+            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">My First Material Design App</TextBlock>
+        </md:Card>
+    </Grid>
+</mde:MaterialWindow>
