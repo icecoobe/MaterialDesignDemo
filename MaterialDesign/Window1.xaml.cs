@@ -1,4 +1,5 @@
-﻿using MaterialDesignExtensions.Model;
+﻿using MaterialDesign.ViewModel;
+using MaterialDesignExtensions.Model;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,9 @@ namespace MaterialDesign
         {
             InitializeComponent();
             InitSideNavMenu();
+            DataContext = new MyStepVM();
+            stepper.IsLinear = true;
+            stepper.Layout = MaterialDesignExtensions.Controls.StepperLayout.Vertical;
         }
 
         private void InitSideNavMenu()
